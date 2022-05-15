@@ -1,10 +1,9 @@
+<li><%= link_to "Create Repo", new_repository_path %></li>
 <h1>All Repos</h1>
-
-<form action="<%= repositories_path %>">
-  <input type="text" placeholder=" RepoName or Description" name="search_key">
-  <button type="submit">Search</button>
-</form>
-
+  <form action="<%= repositories_path %>">
+    <input type="text" placeholder=" RepoName or Description" name="search_key">
+    <button type="submit">Search</button>
+  </form>
 <table>
   <tr>
       <th> Id </th>
@@ -13,7 +12,7 @@
       <th> Full Name </th>
   </tr>
   <tr>
-  <% @repo.each do |repo| %>
+   <% @repo.each do |repo| %>
     <tr>
       <td> <li>
       <a href="<%= repository_path(repo) %>">
@@ -23,9 +22,7 @@
     <td> <%= repo.name %> </td>
       <td> <%= repo.description %> </td>
       <td> <%= repo.owner.full_name %> </td>
-      
     </tr>
-      <% end %>
+   <% end %>
   </tr>
-
 </table>
