@@ -1,0 +1,23 @@
+<li><%= link_to "Create new Repository", new_repository_path %></li>
+    <h4>Name:  <%= @repo.name %> </h4>
+      <h4>Description:<%= @repo.description %> </h4>
+      <h4>Owner Name:<%= @repo.owner.full_name %> </h4>
+<h5> All Collaborator</h5>
+<%@collaborator.each do |name|%>
+<%= name %>
+<%end%>
+
+<ul>
+  <li><%= link_to "Edit", edit_repository_path(@repo) %></li>
+
+  <li><%= link_to "Destroy", @repo, method: :delete,
+    data: { confirm: 'Are you sure?' } %></li>
+</ul>
+
+
+<%= form_with url:repository_collaborations_path(@repo) do |f| %>
+Add Collaborator :
+  <%= f.select :user_id, @un_selected_user, include_blank: true%>
+  <%= f.hidden_field :repository_id, value: @repo.id%>
+  <%= f.submit %>
+<% end %>

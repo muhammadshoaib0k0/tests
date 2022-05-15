@@ -1,0 +1,20 @@
+<%= form_with model: @repo do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </div>
+  <br>
+  <div>
+  Owner :
+    <%= form.select :user_id, @usr %>
+  </div>
+<br>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
